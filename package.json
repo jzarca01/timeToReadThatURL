@@ -1,0 +1,16 @@
+{
+  "name": "timeToReadThatURL",
+  "version": "1.0.0",
+  "description": "Calculates how long it would take you to read that URL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GNU",
+  "dependencies": {
+    "article-extractor": "^1.0.2",
+    "reading-time": "^1.1.0",
+    "to-markdown": "^3.0.3",
+  }
+}
