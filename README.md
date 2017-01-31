@@ -12,3 +12,7 @@ node index.js --url http://bit.ly/2jeJDCg
 
 ### Options
 ```--verbose```: displays title and text in the console
+
+```--speed 400```: set the amount of words per minute to 400, 200 by default
+
+
