@@ -4,7 +4,7 @@ Calculates how long it would take you to read that URL
 
 ## Usage
 ```javascript
-node index.js --url http://bit.ly/2jeJDCg
+babel-node index.js --presets es2015,stage-2 --url http://bit.ly/2jeJDCg
 ```
 
 ### Results
