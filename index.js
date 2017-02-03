@@ -1,30 +1,31 @@
-var extractor = require('article-extractor');
-var readingTime = require('reading-time');
-var toMarkdown = require('to-markdown');
+import extractor from 'article-extractor';
+import readingTime from 'reading-time';
+import toMarkdown from 'to-markdown';
+import minimist from 'minimist';
 
-var text = '';
-var speed = 200;
-var verbose = false;
+let text = '';
+let speed = 200;
+let verbose = false;
 
-var argv = require('minimist')(process.argv.slice(2));
+let argv = minimist(process.argv.slice(2));
 
 
 function getDataFromUrl(url){
     return new Promise(function(resolve,reject){
-        extractor.extractData(url, function (err, data) {
+        extractor.extractData(url, (err, data) => {
                  if(err !== null) return reject(err);
              resolve(data);
          });
     });
 }
 function estimateReadingTime(text, wordsPerMinute) {
-    var stats = readingTime(text, {wordsPerMinute: wordsPerMinute});
+    let stats = readingTime(text, {wordsPerMinute: wordsPerMinute});
     return stats.minutes;
 }
 
 
 function timeToRead(url, verbose, speed) {
-        getDataFromUrl(url).then(function(data) {
+        getDataFromUrl(url).then(data => {
             text = toMarkdown(data.title+"<br />"+data.content);
             console.log(estimateReadingTime(text, speed) + " minutes to read.");
             
@@ -36,8 +37,8 @@ function timeToRead(url, verbose, speed) {
 }
 
 function timeToSave(url) {
-        var text = ''
-        getDataFromUrl(url).then(function(data) {
+        let text = ''
+        getDataFromUrl(url).then(data => {
             text = toMarkdown(data.title+"<br />"+data.content);
         });
         return text;
